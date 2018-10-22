@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>My background in computer programming</title>
+  <meta name="description" content="home &amp;gt; programming &amp;gt; background">
+
+  <link href="/favicon.png" rel="icon" type="image/png">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://0.0.0.0:4000/programming/background/">
+  <link rel="alternate" type="application/rss+xml" title="Personal Website" href="/feed.xml">
+  
+  
+</head>
+
+
+
+  <body>
+
+    <p class="sticky"><a href="/">home</a> &gt; <a href="/programming/index/">programming</a> &gt; <a href="/programming/background/">background</a></p>
+
+<h1 id="programming-background">Programming background</h1>
+
+<p>My dad didn’t believe in personal computers. Lucky for me my computer programming uncle, Theo Von Solms, managed to convince my dad to buy me my first PC when I was 10.</p>
+
+<p>From that day onwards I loved computers.</p>
+
+<p>I spent most of my primary and high school years playing computer games like Star Control, Space Quest, Hero’s Quest, Kings Quest, Police Quest, Doom, Castle Wolfenstein, Warcraft, Alone in the dark and many more.</p>
+
+<p>I wanted to make <a href="/music/index/">music</a>, art and computer games. The aptitude tests thought I should become an architect. My parents convinced me to study business instead.</p>
+
+<p>It would be years before I returned to the idea of studying computers.</p>
+
+<p>I discovered Linux and free software. I used the internet to learn front end web development. Soon I was attending web development evening classes in the city, whilst working as a <a href="/programming/web/">freelance web developer</a>.</p>
+
+<p>It wasn’t long before I was working full time. First for a UK based social startup called <a href="http://every1mobile.net">Every1Mobile</a> and a few years later for a hosting company called <a href="https://hetzner.co.za">Hetzner</a>.</p>
+
+<p>I became a <a href="http://www.lpi.org/">Linux Professional Institute</a> certified system administrator.</p>
+
+<p>I am currently working as a freelance web developer for <a href="https://rhinoafrica.com">Rhino Africa</a> and <a href="https://vegashero.co">Vegas Hero</a>, whilst studying audio programming.</p>
+
+<p>I hope to combine web development, music composition and audio programming to create something beautiful.</p>
+
+<p><a href="/collaborate/">contact me</a></p>
+
+
+    <br>
+<div class="footer"></div>
+
+
+    <script>
+
+        const colors = ['green', 'amber'];
+
+        let randomColor = (colors) => {
+            return colors[Math.floor(Math.random()*colors.length)]
+        };
+
+        let saveColor = (color) => {
+            localStorage.setItem("monitor", color);
+        }
+
+        let savedColor = localStorage.getItem("monitor");
+        document.body.className = savedColor ? savedColor : randomColor(colors);
+
+        saveColor(document.body.className);
+
+        let toggleColor = (colors, currentColor) => {
+            return colors.find(color => color !== currentColor);
+        };
+        let colorChanger = () => {
+            let p = document.createElement('p');
+            let a = document.createElement('a');
+            let t = document.createTextNode('change color');
+            p.appendChild(a);
+            a.appendChild(t);
+            a.addEventListener("click", () => {
+                beep(100, 1000, 0.5);
+                let color = toggleColor(colors, localStorage.getItem("monitor"));
+                saveColor(color);
+                document.body.className = color;
+            });
+            return p;
+        };
+
+        document.querySelector('div.footer').appendChild(colorChanger());
+
+        var audioCtx = new (window.AudioContext || window.webkitAudioContext || window.audioContext);
+
+        function beep(duration, frequency, volume, type, callback) {
+            var oscillator = audioCtx.createOscillator();
+            var gainNode = audioCtx.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            if (volume){gainNode.gain.value = volume;};
+            if (frequency){oscillator.frequency.value = frequency;}
+            if (type){oscillator.type = type;}
+            if (callback){oscillator.onended = callback;}
+
+            oscillator.start();
+            oscillator.stop(audioCtx.currentTime + duration/1000);
+        };
+
+    </script>
+  </body>
+
+</html>
+

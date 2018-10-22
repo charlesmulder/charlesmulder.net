@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Game music composer</title>
+  <meta name="description" content="Game music composer">
+
+  <link href="/favicon.png" rel="icon" type="image/png">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://0.0.0.0:4000/music/game-music-composer/">
+  <link rel="alternate" type="application/rss+xml" title="Personal Website" href="/feed.xml">
+  
+  
+</head>
+
+
+
+  <body>
+
+    <h1 id="game-music-composer">Game music composer</h1>
+
+<p>Praesent egestas interdum pharetra. Cras sagittis posuere consectetur. Vivamus facilisis interdum massa, in dignissim libero pretium vitae. Pellentesque urna ipsum, accumsan ac aliquet at, commodo id nunc. Morbi molestie ac metus id ultricies. Morbi in eros arcu. In rutrum accumsan neque, vitae mattis neque varius vel. Suspendisse ultricies risus et elementum gravida. Quisque sed congue purus.</p>
+
+<h2 id="examples">Examples</h2>
+
+
+
+    <br>
+<div class="footer"></div>
+
+
+    <script>
+
+        const colors = ['green', 'amber'];
+
+        let randomColor = (colors) => {
+            return colors[Math.floor(Math.random()*colors.length)]
+        };
+
+        let saveColor = (color) => {
+            localStorage.setItem("monitor", color);
+        }
+
+        let savedColor = localStorage.getItem("monitor");
+        document.body.className = savedColor ? savedColor : randomColor(colors);
+
+        saveColor(document.body.className);
+
+        let toggleColor = (colors, currentColor) => {
+            return colors.find(color => color !== currentColor);
+        };
+        let colorChanger = () => {
+            let p = document.createElement('p');
+            let a = document.createElement('a');
+            let t = document.createTextNode('change color');
+            p.appendChild(a);
+            a.appendChild(t);
+            a.addEventListener("click", () => {
+                beep(100, 1000, 0.5);
+                let color = toggleColor(colors, localStorage.getItem("monitor"));
+                saveColor(color);
+                document.body.className = color;
+            });
+            return p;
+        };
+
+        document.querySelector('div.footer').appendChild(colorChanger());
+
+        var audioCtx = new (window.AudioContext || window.webkitAudioContext || window.audioContext);
+
+        function beep(duration, frequency, volume, type, callback) {
+            var oscillator = audioCtx.createOscillator();
+            var gainNode = audioCtx.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            if (volume){gainNode.gain.value = volume;};
+            if (frequency){oscillator.frequency.value = frequency;}
+            if (type){oscillator.type = type;}
+            if (callback){oscillator.onended = callback;}
+
+            oscillator.start();
+            oscillator.stop(audioCtx.currentTime + duration/1000);
+        };
+
+    </script>
+  </body>
+
+</html>
+
