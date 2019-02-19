@@ -17,8 +17,6 @@ I compost and recycle.
 
 I am introverted.
 
-I get nose bleeds. 
-
 I love my wife.
 
 I don't own a tv. 

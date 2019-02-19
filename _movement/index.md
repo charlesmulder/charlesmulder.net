@@ -8,9 +8,7 @@ layout: default
 
 # Movement
 
-I practice Aikido and Iyengar yoga.
-
-My wife and I are saving to attend Aikido training in Italy and Acro Yoga training in Montreal. 
+I practice Aikido, Iyengar yoga and swim. 
 
 If you are interested you can read more about my [background in movement]({% link _movement/background.md %})
 
