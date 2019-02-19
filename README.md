@@ -17,6 +17,7 @@ bundle exec jekyll serve --host '0.0.0.0' --watch
 ## Deploy
 
 ```sh
+bundle exec jekyll build
 git subtree push --prefix _site origin gh-pages
 ```
 
