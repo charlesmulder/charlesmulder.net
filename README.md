@@ -14,6 +14,12 @@ bundle install --path vendor
 bundle exec jekyll serve --host '0.0.0.0' --watch
 ```
 
+## Deploy
+
+```sh
+git subtree push --prefix _site origin gh-pages
+```
+
 ## Cool animations
 
 * https://codepen.io/deanwagman/full/EjLBdQ/

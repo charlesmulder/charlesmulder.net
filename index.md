@@ -11,7 +11,7 @@ I focus my creative energy on [music]({% link _music/index.md %}), [movement]({%
 
 I am vegetarian.
 
-I practice yoga and aikido.
+I practice yoga and aikido and swimming.
 
 I compost and recycle.
 
@@ -19,7 +19,7 @@ I am introverted.
 
 I love my wife.
 
-I don't own a tv. 
+I don't own a television. 
 
 I don't smoke, drink or do drugs. 
 
