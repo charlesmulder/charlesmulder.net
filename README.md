@@ -18,6 +18,7 @@ bundle exec jekyll serve --host '0.0.0.0' --watch
 
 ```sh
 bundle exec jekyll build
+git push origin --delete gh-pages 
 git subtree push --prefix _site origin gh-pages
 ```
 
