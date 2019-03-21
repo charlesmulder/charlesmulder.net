@@ -28,6 +28,7 @@ markdown: kramdown
 theme: monomulder
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
 sass:
   style: compact
 
