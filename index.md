@@ -27,7 +27,7 @@ I am not religious.
 
 I garden.
 
-I live on a mountain.
+I live on a mountain just outside Paarl in the Cape Winelands of South Africa.
 
 [contact me]({% link collaborate.html %})
 
