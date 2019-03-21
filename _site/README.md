@@ -19,7 +19,7 @@ bundle exec jekyll serve --host '0.0.0.0' --watch
 **NB**: Do not add `_site` to `.gitignore`.
 
 ```sh
-bundle exec jekyll build
+JEKYLL_ENV=production bundle exec jekyll build
 git push origin --delete gh-pages 
 git subtree push --prefix _site origin gh-pages
 ```
