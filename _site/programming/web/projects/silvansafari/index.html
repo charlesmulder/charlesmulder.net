@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>book.silvansafari.com</title>
+  <meta name="description" content="home &amp;gt; programming &amp;gt; web &amp;gt; projects &amp;gt; book.silvansafari.com">
+
+  <link href="/favicon.png" rel="icon" type="image/png">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://charlesmulder.net/programming/web/projects/silvansafari/">
+  <link rel="alternate" type="application/rss+xml" title="Personal Website" href="/feed.xml">
+  
+  
+</head>
+
+
+
+  <body>
+
+    <p class="sticky"><a href="/">home</a> &gt; <a href="/programming/index/">programming</a> &gt; <a href="/programming/web/">web</a> &gt; <a href="/programming/web/projects/">projects</a> &gt; <a href="/programming/web/projects/silvansafari/">book.silvansafari.com</a></p>
+
+<h1 id="silvan-safari-online-booking-engine">Silvan Safari Online Booking Engine</h1>
+
+<p><img src="/assets/silvansafari.jpg" alt="desktop &amp; mobile screenshots of the Silvan Safari online booking engine" class="screenshot" /></p>
+
+<p><a href="https://silvansafari.com">Silvan Safari</a> is a one-of-a-kind, luxury lodge located in the South African Sabi Sand Game Reserve, which forms part of the greater Kruger National Park. The user interface was written with Angular JS and TypeScript. It is hosted on AWS S3 and served to the world via AWS Cloudfront. The API was written in Node.js and runs on AWS Lambda.</p>
+
+<p><a href="https://book.silvansafari.com">book.silvansafari.com</a></p>
+
+<p><a href="/collaborate/">contact me</a></p>
+
+
+
+    <br>
+<div class="footer"></div>
+
+
+    <script>
+
+        const colors = ['green', 'amber'];
+
+        let randomColor = (colors) => {
+            return colors[Math.floor(Math.random()*colors.length)]
+        };
+
+        let saveColor = (color) => {
+            localStorage.setItem("monitor", color);
+        }
+
+        let savedColor = localStorage.getItem("monitor");
+        document.body.className = savedColor ? savedColor : randomColor(colors);
+
+        saveColor(document.body.className);
+
+        let toggleColor = (colors, currentColor) => {
+            return colors.find(color => color !== currentColor);
+        };
+        let colorChanger = () => {
+            let p = document.createElement('p');
+            let a = document.createElement('a');
+            let t = document.createTextNode('change color');
+            p.appendChild(a);
+            a.appendChild(t);
+            a.addEventListener("click", () => {
+                beep(100, 1000, 0.5);
+                let color = toggleColor(colors, localStorage.getItem("monitor"));
+                saveColor(color);
+                document.body.className = color;
+            });
+            return p;
+        };
+
+        document.querySelector('div.footer').appendChild(colorChanger());
+
+        var audioCtx = new (window.AudioContext || window.webkitAudioContext || window.audioContext);
+
+        function beep(duration, frequency, volume, type, callback) {
+            var oscillator = audioCtx.createOscillator();
+            var gainNode = audioCtx.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            if (volume){gainNode.gain.value = volume;};
+            if (frequency){oscillator.frequency.value = frequency;}
+            if (type){oscillator.type = type;}
+            if (callback){oscillator.onended = callback;}
+
+            oscillator.start();
+            oscillator.stop(audioCtx.currentTime + duration/1000);
+        };
+
+    </script>
+  </body>
+
+</html>
+
