@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>contact and collaborate</title>
+  <meta name="description" content="Hello world. I am Charles Mulder. Welcome to my personal website about music, movement and computer programming.">
+
+  <link href="/favicon.png" rel="icon" type="image/png">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://charlesmulder.net/collaborate/">
+  <link rel="alternate" type="application/rss+xml" title="Personal Website" href="/feed.xml">
+  
+  
+</head>
+
+
+
+  <body>
+
+    <p><a href="/">home</a></p>
+
+<h1>Collaborate</h1>
+
+<p>I am based in the Cape Winelands of South Africa. Due to convenient timezone overlaps I prefer to collaborate with Europe, Africa and the Middle East.</p>
+
+<p>
+    <strong>email:</strong> <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#99;&#104;&#97;&#114;&#108;&#101;&#115;&#109;&#117;&#108;&#100;&#101;&#114;&#64;&#112;&#114;&#111;&#116;&#111;&#110;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#99;&#104;&#97;&#114;&#108;&#101;&#115;&#109;&#117;&#108;&#100;&#101;&#114;&#64;&#112;&#114;&#111;&#116;&#111;&#110;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>
+    <br>
+    <strong>timezone:</strong> GMT+2
+</p>
+
+
+
+    <br>
+<div class="footer"></div>
+
+
+    <script>
+
+        const colors = ['green', 'amber'];
+
+        let randomColor = (colors) => {
+            return colors[Math.floor(Math.random()*colors.length)]
+        };
+
+        let saveColor = (color) => {
+            localStorage.setItem("monitor", color);
+        }
+
+        let savedColor = localStorage.getItem("monitor");
+        document.body.className = savedColor ? savedColor : randomColor(colors);
+
+        saveColor(document.body.className);
+
+        let toggleColor = (colors, currentColor) => {
+            return colors.find(color => color !== currentColor);
+        };
+        let colorChanger = () => {
+            let p = document.createElement('p');
+            let a = document.createElement('a');
+            let t = document.createTextNode('change color');
+            p.appendChild(a);
+            a.appendChild(t);
+            a.addEventListener("click", () => {
+                beep(100, 1000, 0.5);
+                let color = toggleColor(colors, localStorage.getItem("monitor"));
+                saveColor(color);
+                document.body.className = color;
+            });
+            return p;
+        };
+
+        document.querySelector('div.footer').appendChild(colorChanger());
+
+        var audioCtx = new (window.AudioContext || window.webkitAudioContext || window.audioContext);
+
+        function beep(duration, frequency, volume, type, callback) {
+            var oscillator = audioCtx.createOscillator();
+            var gainNode = audioCtx.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            if (volume){gainNode.gain.value = volume;};
+            if (frequency){oscillator.frequency.value = frequency;}
+            if (type){oscillator.type = type;}
+            if (callback){oscillator.onended = callback;}
+
+            oscillator.start();
+            oscillator.stop(audioCtx.currentTime + duration/1000);
+        };
+
+    </script>
+  </body>
+
+</html>
+

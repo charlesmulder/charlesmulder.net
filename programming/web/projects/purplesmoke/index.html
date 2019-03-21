@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>purplesmoke.co.uk</title>
+  <meta name="description" content="home &amp;gt; programming &amp;gt; web &amp;gt; projects &amp;gt; purplesmoke.co.uk">
+
+  <link href="/favicon.png" rel="icon" type="image/png">
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://charlesmulder.net/programming/web/projects/purplesmoke/">
+  <link rel="alternate" type="application/rss+xml" title="Personal Website" href="/feed.xml">
+  
+  
+</head>
+
+
+
+  <body>
+
+    <p class="sticky"><a href="/">home</a> &gt; <a href="/programming/index/">programming</a> &gt; <a href="/programming/web/">web</a> &gt; <a href="/programming/web/projects/">projects</a> &gt; <a href="/programming/web/projects/purplesmoke/">purplesmoke.co.uk</a></p>
+
+<h1 id="purple-smoke-online-fashion-store">Purple Smoke Online Fashion Store</h1>
+
+<p><img src="/assets/purplesmoke.jpg" alt="desktop &amp; mobile screenshots of the Purple Smoke online fashion store" class="screenshot" /></p>
+
+<p><a href="https://purplesmoke.co.uk">Purple Smoke</a> is a luxury resort, fashion brand created by, UK based designer &amp; entrepreneur, Preston Schroeder. The online store was created using the Wordpress WooCommerce plugin along with a custom Storefront based child theme. The site is hosted on a dedicated VPS running Debian Linux.</p>
+
+<p><a href="https://purplesmoke.co.uk">https://purplesmoke.co.uk</a></p>
+
+<p><a href="/collaborate/">contact me</a></p>
+
+
+
+    <br>
+<div class="footer"></div>
+
+
+    <script>
+
+        const colors = ['green', 'amber'];
+
+        let randomColor = (colors) => {
+            return colors[Math.floor(Math.random()*colors.length)]
+        };
+
+        let saveColor = (color) => {
+            localStorage.setItem("monitor", color);
+        }
+
+        let savedColor = localStorage.getItem("monitor");
+        document.body.className = savedColor ? savedColor : randomColor(colors);
+
+        saveColor(document.body.className);
+
+        let toggleColor = (colors, currentColor) => {
+            return colors.find(color => color !== currentColor);
+        };
+        let colorChanger = () => {
+            let p = document.createElement('p');
+            let a = document.createElement('a');
+            let t = document.createTextNode('change color');
+            p.appendChild(a);
+            a.appendChild(t);
+            a.addEventListener("click", () => {
+                beep(100, 1000, 0.5);
+                let color = toggleColor(colors, localStorage.getItem("monitor"));
+                saveColor(color);
+                document.body.className = color;
+            });
+            return p;
+        };
+
+        document.querySelector('div.footer').appendChild(colorChanger());
+
+        var audioCtx = new (window.AudioContext || window.webkitAudioContext || window.audioContext);
+
+        function beep(duration, frequency, volume, type, callback) {
+            var oscillator = audioCtx.createOscillator();
+            var gainNode = audioCtx.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            if (volume){gainNode.gain.value = volume;};
+            if (frequency){oscillator.frequency.value = frequency;}
+            if (type){oscillator.type = type;}
+            if (callback){oscillator.onended = callback;}
+
+            oscillator.start();
+            oscillator.stop(audioCtx.currentTime + duration/1000);
+        };
+
+    </script>
+  </body>
+
+</html>
+
