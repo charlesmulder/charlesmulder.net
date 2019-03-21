@@ -16,6 +16,8 @@ bundle exec jekyll serve --host '0.0.0.0' --watch
 
 ## Deploy
 
+**NB**: Do not add `_site` to `.gitignore`.
+
 ```sh
 bundle exec jekyll build
 git push origin --delete gh-pages 
