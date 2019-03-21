@@ -6,19 +6,15 @@ layout: default
 [home]({% link index.md %}) > [programming]({% link _programming/index.md %}) > [web]({% link _programming/web.md %})
 {: .sticky }
 
-# Freelance web developer
+# Freelance full-stack web developer
 
-I do full stack web development.
-
-I focus on user experience. 
+I do full-stack web development with a focus on user experience and design.
 
 I value documentation over web forums. 
 
-My favourite programming language is modern Javascript. 
+My favourite programming languages are Javascript, Node.js, PHP and Python. 
 
-I also speak English, Afrikaans, PHP, Python, Ruby, C++ and C.
-
-Web development trends I am excited about include static website generators, serverless infrastructure, Linux containers and the [JAMstack]({% post_url 2018-08-19-jamstack %}).
+Please take a look at my [web development project portfolio]({% link _programming/web/projects.md %}).
 
 [contact me]({% link collaborate.html %})
 
