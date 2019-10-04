@@ -16,7 +16,7 @@ tags:
 
 # Purple Smoke Online Fashion Store
 
-![desktop & mobile screenshots of the Purple Smoke online fashion store](/assets/purplesmoke.jpg){: .screenshot}
+![desktop & mobile screenshots of the Purple Smoke online fashion store selling luxury resort clothing](/assets/purplesmoke.jpg){: .screenshot}
 
 [Purple Smoke](https://purplesmoke.co.uk) is a luxury resort, fashion brand created by, UK based designer & entrepreneur, Preston Schroeder. The online store was created using the Wordpress WooCommerce plugin along with a custom Storefront based child theme. The site is hosted on a dedicated VPS running Debian Linux.
 
