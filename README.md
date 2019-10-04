@@ -20,6 +20,8 @@ bundle exec jekyll serve --host '0.0.0.0' --watch
 
 ```sh
 JEKYLL_ENV=production bundle exec jekyll build
+git add -A .
+git commit -a -m ''
 git push origin --delete gh-pages 
 git subtree push --prefix _site origin gh-pages
 ```
