@@ -2,4 +2,5 @@
 .jekyll-metadata
 vendor
 *.swp
-
+.cache
+node_modules

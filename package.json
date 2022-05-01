@@ -1,0 +1,44 @@
+{
+  "name": "charlesmulder.net",
+  "version": "0.0.1",
+  "description": "Personal xterm webstie",
+  "module": "dist/main.mjs",
+  "exports": "",
+  "main": "dist/",
+  "scripts": {
+    "all": "npm run check && npm test && npm run secure",
+    "config": "envsub",
+    "check": "semistandard 'src/*' 'tests/*'",
+    "fix": "semistandard 'src/*' 'tests/*' --fix",
+    "lint": "eslint src",
+    "test": "jest --runInBand --verbose",
+    "build": "webpack --mode production --progress --target web",
+    "watch": "webpack --mode development --progress --target web --watch --color",
+    "serve": "npx http-server -p 9000",
+    "secure": "auditjs ossi"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charlesmulder/charlesmulder.net.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "author": "Charles Mulder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/charlesmulder/charlesmulder.net/issues"
+  },
+  "homepage": "https://github.com/charlesmulder/charlesmulder.net#readme",
+  "dependencies": {
+    "luxon": "^2.3.2",
+    "ua-parser-js": "^1.0.2",
+    "xterm": "^4.18.0",
+    "xterm-addon-fit": "^0.5.0",
+    "xterm-addon-web-links": "^0.5.1",
+    "xterm-addon-webgl": "^0.11.4"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.9.2"
+  }
+}

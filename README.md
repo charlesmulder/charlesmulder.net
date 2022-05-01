@@ -1,25 +1,21 @@
-# charlesmulder.net
+# Terminal website
 
-## Quickstart
-
-```sh
-rm Gemfile.lock
-USER_NAME=$USER USER_ID=$(id -u) docker-compose up # TODO: fix
-```
-
-Personal blog not relating to professional work as software engineer or music.
-
-```bash
-bundle install --path vendor
-bundle exec jekyll serve --host '0.0.0.0' --watch
-```
-
-## Deploy
-
-**NB**: Do not add `_site` to `.gitignore`.
+## Development
 
 ```sh
-JEKYLL_ENV=production bundle exec jekyll build
+docker run -ti -v $(pwd):/usr/local/src -w /usr/local/src -u $(id -u):$(id -u) -p 8000:8000 node:lts-alpine npx http-server -p 8000
+```
+
+``sh
+docker run -ti -v $(pwd):/usr/local/src -w /usr/local/src -u $(id -u):$(id -u) node:lts-alpine /bin/ash
+npm run watch
+```
+
+## Production
+
+```sh
+npm install --omit dev
+npm run build
 git add -A .
 git commit -a -m ''
 git push 
@@ -27,15 +23,6 @@ git push origin --delete gh-pages
 git subtree push --prefix _site origin gh-pages
 ```
 
-## Cool animations
+## Links
 
-* https://codepen.io/deanwagman/full/EjLBdQ/
-* https://codepen.io/prayushS/full/xpFiH/
-
-
-# Resources
-* [Voice-change-O-matic](https://mdn.github.io/voice-change-o-matic/)
-* [Visualizations with Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API)
-* [Cool slideshow](https://revealjs.com)
-* [Sine wave animation in browser](https://www.youtube.com/watch?v=SuCfAY5LGRE)
-* [UI and audio library to develop web audio applications](https://github.com/wavesjs)
+- [xtermjs](https://xtermjs.org/)
