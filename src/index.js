@@ -2,8 +2,6 @@
 import { Terminal } from 'xterm';
 
 import { FitAddon } from 'xterm-addon-fit';
-//import { WebLinksAddon } from 'xterm-addon-web-links';
-//import { WebglAddon } from 'xterm-addon-webgl';
 
 import { Prompt } from './prompt';
 import { Theme } from './theme';
@@ -15,22 +13,23 @@ const term = new Terminal({
   altClickMovesCursor: false,
   convertEol: false,
   rightClickSelectsWord: true,
-  disableStdin: false
+  disableStdin: false,
+  rows: 40
   //logLevel: "debug",
 });
 
 const fitAddon = new FitAddon()
 term.loadAddon(fitAddon);
-//term.loadAddon(new WebLinksAddon());
 
 let lineBuffer = '';
 let entries = [];
 let prompt = new Prompt(Theme);
 
 term.open(document.getElementById('terminal'));
-//term.loadAddon(new WebglAddon());
 
 term.writeln(prompt.header());
+prompt.cowsay().forEach(line => term.writeln(line) );
+
 term.write(prompt.motd());
 term.write(prompt.value);
 term.focus();

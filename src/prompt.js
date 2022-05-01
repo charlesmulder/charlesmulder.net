@@ -1,6 +1,10 @@
 
 import { DateTime } from "luxon";
 
+import { say, DEFAULT_COW, DRAGON, HEDGEHOG, SHEEP, SQUIRREL, TUX  } from 'cowsay';
+
+import { Animal } from 'animal-vegetable';
+
 const parser = new UAParser();
 
 class Prompt {
@@ -31,6 +35,27 @@ class Prompt {
 
   motd() {
     return `\r\n${this.theme.foreground}This site is pending construction.\r\n\r\n${this.theme.foreground}To ${this.theme.yellow}collaborate${this.theme.foreground} please contact me on ${this.email}.\r\n\r\n`;
+  }
+
+  wisewords() {
+    const said = Animal.say();
+    return `${said.quote} - ${said.author}`;
+  }
+
+  cow() {
+    const cows = [DEFAULT_COW, DRAGON, HEDGEHOG, SHEEP, SQUIRREL, TUX];
+    const rand = cows[Math.floor(Math.random()*cows.length)];
+    console.log(rand);
+    return rand;
+  }
+
+  cowsay() {
+    return say({
+      text: this.wisewords(),
+      cow: this.cow(),
+      wrap: false,
+      wrapLength: 80
+    }).split("\n");
   }
 
   get value() {

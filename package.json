@@ -6,16 +6,8 @@
   "exports": "",
   "main": "dist/",
   "scripts": {
-    "all": "npm run check && npm test && npm run secure",
-    "config": "envsub",
-    "check": "semistandard 'src/*' 'tests/*'",
-    "fix": "semistandard 'src/*' 'tests/*' --fix",
-    "lint": "eslint src",
-    "test": "jest --runInBand --verbose",
-    "build": "webpack --mode production --progress --target web",
-    "watch": "webpack --mode development --progress --target web --watch --color",
-    "serve": "npx http-server -p 9000",
-    "secure": "auditjs ossi"
+    "build": "webpack --mode production --progress --target web --config webpack.config.js",
+    "watch": "webpack --mode development --progress --target web --watch --color --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -31,12 +23,12 @@
   },
   "homepage": "https://github.com/charlesmulder/charlesmulder.net#readme",
   "dependencies": {
+    "animal-vegetable": "^1.0.0",
+    "cowsay": "^1.5.0",
     "luxon": "^2.3.2",
     "ua-parser-js": "^1.0.2",
     "xterm": "^4.18.0",
-    "xterm-addon-fit": "^0.5.0",
-    "xterm-addon-web-links": "^0.5.1",
-    "xterm-addon-webgl": "^0.11.4"
+    "xterm-addon-fit": "^0.5.0"
   },
   "devDependencies": {
     "webpack-cli": "^4.9.2"
