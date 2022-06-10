@@ -45,7 +45,6 @@ class Prompt {
   cow() {
     const cows = [DEFAULT_COW, DRAGON, HEDGEHOG, SHEEP, SQUIRREL, TUX];
     const rand = cows[Math.floor(Math.random()*cows.length)];
-    console.log(rand);
     return rand;
   }
 
