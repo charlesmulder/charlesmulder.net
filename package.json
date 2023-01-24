@@ -26,7 +26,7 @@
     "animal-vegetable": "^1.0.0",
     "cowsay": "^1.5.0",
     "luxon": "^2.3.2",
-    "ua-parser-js": "^1.0.2",
+    "ua-parser-js": "^1.0.33",
     "xterm": "^4.18.0",
     "xterm-addon-fit": "^0.5.0"
   },
